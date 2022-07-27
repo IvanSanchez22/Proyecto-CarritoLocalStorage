@@ -42,19 +42,16 @@ function agregarCurso(e) {
 
 //Elimina un cursos del carrito
 function eliminarCurso(e) {
-    let actualizado;
+    let actualizado = false;
     if (e.target.classList.contains('borrar-curso')) {
         const cursoId = e.target.getAttribute('data-id')
         //Eliminar del array si la cantidad comprada es mayor que 1
         articulosCarrito.forEach((curso, indice) => {
             if (curso.id === cursoId && curso.cantidad > 1) {
                 curso.cantidad -= 1;
-                cursoActualizado = curso;
-                articulosCarrito[indice] = cursoActualizado;
+                articulosCarrito[indice] = curso;
                 actualizado = true;
                 carritoHtml();
-                return;
-
             }
         })
         //Eliminar curso del array si la cantidad comprada es 1
